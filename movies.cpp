@@ -3,17 +3,20 @@
 #include "movies.h"
 using namespace std;
 
+//Movie constructor
 movies::movies(char* inputTitle, char* inputDirector, int inputYear, int inputDuration, float inputRating):media(inputTitle,inputYear){
 	director = new char[80];
-	strcpy(direction, inputDirector);
+	strcpy(director, inputDirector);
 	duration = inputDuration;
 	rating = inputRating;
 }
 
-~movies::movies(){
+//Movie destructor
+movies::~movies(){
 	delete[] director;
 }
 
+//Movie specific functions
 char* movies::getDirector() {
 	return director;
 }
@@ -31,4 +34,7 @@ float movies::getRating() {
 }
 void movies::setRating(float inputRating){
 	rating = inputRating;
+}
+void movies::print(){
+	cout << "Title: " << title << "\tYear: " << year << "\tDirector: " << director << "\tDuration: " << duration << "\tRating: " << rating << endl;
 }

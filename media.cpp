@@ -3,16 +3,18 @@
 #include "media.h"
 
 using namespace std;
-
+//Media constructor
 media::media(char* inputTitle, int inputYear){
 	title = new char[80];
 	strcpy(title, inputTitle);
 	year = inputYear;
 }
-~media::media(){
+//Media destructor
+media::~media(){
 	delete[] title;
 }
 
+//Media functions specific
 char* media::getTitle(){
 	return title;
 }
@@ -25,4 +27,7 @@ void media::setTitle(char* inputTitle){
 }
 void media::setYear(int inputYear){
 	year = inputYear;
+}
+void media::print(){
+	cout << "Title: " << title << "\tYear: " << year << endl;
 }

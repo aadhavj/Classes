@@ -3,7 +3,8 @@
 #include "music.h"
 using namespace std;
 
-music::music(char* inputTitle, char* inputArtist, int inputYear, int duration, char* publisher):media(inputTitle, inputYear)
+//Constructor
+music::music(char* inputTitle, char* inputArtist, int inputYear, int inputDuration, char* inputPublisher):media(inputTitle, inputYear)
 {
 	artist = new char[80];
 	strcpy(artist, inputArtist);
@@ -11,10 +12,14 @@ music::music(char* inputTitle, char* inputArtist, int inputYear, int duration, c
 	publisher = new char[80];
 	strcpy(publisher, inputPublisher);
 }
-~music::music(){
+
+//Destructor
+music::~music(){
 	delete[] artist;
 	delete[] publisher;
 }
+
+//Functions specific commands
 char* music::getArtist() {
 	return artist;
 }
@@ -32,4 +37,7 @@ char* music::getPublisher() {
 }
 void music::setPublisher(char* inputPublisher){
 	strcpy(publisher, inputPublisher);
+}
+void music::print(){
+	cout << "Title: " << title << "\tYear: " << year << "\tArtist: " << artist << "\tDuration: " << duration << "\tPublisher: " << publisher << endl;
 }
